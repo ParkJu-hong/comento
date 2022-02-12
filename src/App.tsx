@@ -1,24 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Calender from './components/Calendar';
+import Schedule from './components/Schedule';
+// import styled from 'styled-components';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{ display: 'flex' }}>
+      <div style={{
+        flex: '0.3',
+        height: '100vh',
+        backgroundColor: '#E2E2E2'
+      }}><Schedule /></div>
+      <div
+        style={{
+          flex: '0.5',
+          width: '100vh',
+        }}><Calender /></div>
     </div>
   );
 }

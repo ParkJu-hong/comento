@@ -1,28 +1,63 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 // import Calendar from 'react-calendar';
 import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
+import DayPicker from 'react-day-picker';
+import 'react-day-picker/lib/style.css';
+
 
 function Calender() {
+  const [seletedDay, setSeletedDay] = useState()
 
-    /*
-        캘린더 사이즈를 조절하고 싶으나 width, height와 같은 css로는 
-        정사각형을 맞출 수도 없고, heigth가 맞지 않는다.
+  useEffect(()=>{
+    console.log('오늘 => ', new Date().getFullYear(), '/', new Date().getMonth(), '/',new Date().getDate());
+  },[])
 
-        FullCalendar defaultView="dayGridMonth" dateClick={this.handleDateClick} select={this.handleSelectClick} selectable='true' plugins={[ dayGridPlugin, interactionPlugin ]}  events={[
-                { title: 'event 1', allDay: true, start: '2020-05-29', end: '2020-05-30' },
-                { title: 'event 2', allDay: true, start: '2020-05-29', end: '2020-05-30'}
-            ]}/>
-    */
+
+  const modifiersStyles = {
+    selectDay: {
+      color: '#2656ff',
+      backgroundColor: '#fff'
+    },
+    today: {
+      color: 'black'
+    }
+  };
+  const _modifiers = {
+    thursdays: { daysOfWeek: [4] },
+    birthday: new Date(2018, 9, 30),
+    _selectedDay : new Date() 
+  };
+  const _modifiersStyles = {
+    birthday: {
+      color: 'white',
+      backgroundColor: '#ffc107',
+    },
+    thursdays: {
+      color: '#ffc107',
+      backgroundColor: '#fffdee',
+    },
+  };
 
   return (
     <div style={{
-        
+
     }}>
-         <FullCalendar
+      {/* <FullCalendar
         plugins={[ dayGridPlugin ]}
         initialView="dayGridMonth"
-      /> </div>
+      />  */}
+      <DayPicker onDayClick={(day) => {
+        console.log(day.getMonth() + 1);
+        console.log(day.getDate());
+
+        console.log(day.getFullYear);
+      }}
+        selectedDays={undefined}
+        modifiersStyles={modifiersStyles}
+
+      />
+    </div>
   );
 }
 

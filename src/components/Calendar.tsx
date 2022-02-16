@@ -4,6 +4,7 @@ import FullCalendar from '@fullcalendar/react' // must go before plugins
 import dayGridPlugin from '@fullcalendar/daygrid' // a plugin!
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
+import './calendar.css';
 
 
 function Calender() {
@@ -53,9 +54,9 @@ function Calender() {
         console.log(day.getDate());
         console.log(day.getFullYear);
       }}
-        selectedDays={undefined}
-        modifiersStyles={modifiersStyles}
-        renderDay={renderDay}
+        // selectedDays={undefined}
+        // modifiersStyles={modifiersStyles}
+        // renderDay={renderDay}
       />
     </div>
   );
